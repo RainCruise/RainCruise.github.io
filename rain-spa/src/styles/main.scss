@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+body {
+  margin: 0;
+  font-family: PingFang SC;
+}
+
+.header {
+  background-color: #409EFF;
+  color: #fff;
+  line-height: 60px;
+}
+
+.aside {
+  position: fixed;
+  height: 100%;
+  z-index: 10;
+  background-color: $menu-background-color;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-container {
+  max-width: $max-container-width;
+  margin: 0 auto;
+}

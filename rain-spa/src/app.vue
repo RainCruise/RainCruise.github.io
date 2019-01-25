@@ -1,24 +1,39 @@
 <template>
   <div id="app">
-    <span>{{msg}}</span>
-    <p class="test">test text</p>
+
+    <el-container>
+      <el-header class="header">
+        <my-header/>
+      </el-header>
+
+      <el-aside class="aside">
+        <nav-menu/>
+      </el-aside>
+
+      <el-main>
+        <transition>
+          <router-view/>
+        </transition>
+      </el-main>
+    </el-container>
   </div>
 </template>
 
 <script>
+import router from '@/router';
+import '@styles/main.scss';
+
+import Header from '@components/header';
+import NavMenu from '@components/nav-menu';
+
 export default {
   name: 'App',
-  data() {
-    return {
-      msg: 'Welcome!'
-    }
-  }
+
+  components: {
+    'my-header': Header,
+    'nav-menu': NavMenu
+  },
+
+  router
 }
 </script>
-
-<style lang="scss" scoped>
-.test {
-  color: red;
-  font-size: 20px;
-}
-</style>

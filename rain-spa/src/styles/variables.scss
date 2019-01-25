@@ -1,0 +1,35 @@
+// Color for basic
+$primary: #4d7cfe;
+$primary-dark: darken($primary, 10);
+$primary-light: #edf5fe;
+$white: #ffffff;
+$black: #000000;
+$gray: #9b9b9b;
+$gray-light: #cccccc;
+$green-light: #53bad1;
+
+// Color for use
+$menu-background-color: #35404f;
+$container-background-color: #f6f7fc;
+$email-color: #f5a623;
+$dividing-line-color: #e8e8e8;
+$text-color:rgba(0, 0, 0, 0.85);
+$text-color-light: rgba(0, 0, 0, 0.65);
+$text-color-lighter: rgba(0, 0, 0, 0.45);
+$text-color-table: #606266;
+$header-title-color: #181818;
+$check-color: #52c41a;
+$warning-color: #f5222d;
+
+// Size
+$header-font-size: 16px;
+$menu-font-size: 14px;
+$dialog-title-size: 20px;
+$token-font-size: 40px;
+
+$aside-width: 208px;
+$max-container-width: 1440px;
+
+//Z-Index
+$z-index-header: 10;
+$z-index-loading: 9999;
