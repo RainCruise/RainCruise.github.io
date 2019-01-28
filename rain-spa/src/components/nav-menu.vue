@@ -8,6 +8,11 @@
     text-color="#fff"
     active-text-color="#fff">
 
+    <div class="menu-header">
+      <el-button icon="el-icon-menu" type="text" class="menu-toggle" @click="onMenuToggle"/>
+      <p>RainCruise</p>
+    </div>
+
     <template v-for="item in routesWithTitle">
       <el-submenu v-if="item.children" :key="item.name" :index="item.path">
         <span slot="title">{{ item.meta.title }}</span>
@@ -41,6 +46,18 @@ import routes from '@/router/routes';
 export default {
   name: 'NavMenu',
 
+  model: {
+    prop: 'navOpen',
+    event: 'change'
+  },
+
+  props: {
+    navOpen: {
+      type: Boolean,
+      required: true
+    }
+  },
+
   computed: {
     routesWithTitle() {
       return routes.map(item => {
@@ -49,6 +66,18 @@ export default {
         }
         return item;
       });
+    }
+  },
+
+  methods: {
+    onMenuToggle() {
+      const vm = this;
+      const {navOpen} = vm;
+      vm.emitChange(!navOpen);
+    },
+
+    emitChange(value) {
+      this.$emit('change', value);
     }
   }
 }
@@ -59,6 +88,34 @@ export default {
 
 .menu {
   border-right: 0;
+
+  .menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    padding: 0 20px;
+    background-color: $menu-background-color;
+    color: $white;
+
+    .menu-toggle {
+      .el-icon-menu {
+        font-size: 24px;
+        color: $white;
+      }
+    }
+
+    p {
+      display: inline;
+      margin: 10px;
+      font-weight: 300;
+      font-size: 20px;
+    }
+  }
+
+  .el-menu-item {
+    text-align: center;
+  }
 
   .is-item-active {
     background-color: $primary !important;

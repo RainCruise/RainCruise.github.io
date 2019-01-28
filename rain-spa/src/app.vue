@@ -3,11 +3,11 @@
 
     <el-container>
       <el-header class="header">
-        <my-header/>
+        <my-header v-model="isNavOpen"/>
       </el-header>
 
-      <el-aside class="aside">
-        <nav-menu/>
+      <el-aside v-show="isNavOpen" class="aside" width="208px">
+        <nav-menu v-model="isNavOpen"/>
       </el-aside>
 
       <el-main>
@@ -32,6 +32,12 @@ export default {
   components: {
     'my-header': Header,
     'nav-menu': NavMenu
+  },
+
+  data() {
+    return {
+      isNavOpen: true
+    }
   },
 
   router
